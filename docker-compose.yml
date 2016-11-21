@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+  # .NET Core
+  marketing:
+    image: marketing
+    build:
+      context: ./src/Marketing
+      dockerfile: Dockerfile
+
+  # .NET Core
+  profileapi:
+    image: profileapi
+    build:
+      context: ./src/Profile.Api
+      dockerfile: Dockerfile
+
+  # .NET Core
+  emailapi:
+    image: emailapi
+    build:
+      context: ./src/Email.Api
+      dockerfile: Dockerfile
+
+  # .NET Core
+  feedbackapi:
+    image: user/feedbackapi
+    build:
+      context: ./src/Feedback.Api
+      dockerfile: Dockerfile
+
+  # Node.js
+  ridesapi:
+    image: bikesharingw-on.azurecr.io/ridesapi
+    environment:
+      - port=80
+    ports:
+      - "80"
+
