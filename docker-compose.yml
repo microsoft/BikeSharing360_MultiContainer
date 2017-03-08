@@ -1,39 +1,26 @@
 version: '2'
 
 services:
-  # .NET Core
-  marketing:
-    image: marketing
+  bikesharing.campaign:
+    image: bikesharing.campaign
     build:
-      context: ./src/Marketing
+      context: ./Bikesharing.Campaign
       dockerfile: Dockerfile
 
-  # .NET Core
-  profileapi:
-    image: profileapi
+  bikesharing.email.api:
+    image: bikesharing.email.api
     build:
-      context: ./src/Profile.Api
+      context: ./Email.Api
       dockerfile: Dockerfile
 
-  # .NET Core
-  emailapi:
-    image: emailapi
+  bikesharing.feedback.api:
+    image: bikesharing.feedback.api
     build:
-      context: ./src/Email.Api
+      context: ./Feedback.Api
       dockerfile: Dockerfile
 
-  # .NET Core
-  feedbackapi:
-    image: user/feedbackapi
+  bikesharing.profile.api:
+    image: bikesharing.profile.api
     build:
-      context: ./src/Feedback.Api
+      context: ./Profile.Api
       dockerfile: Dockerfile
-
-  # Node.js
-  ridesapi:
-    image: bikesharingw-on.azurecr.io/ridesapi
-    environment:
-      - port=80
-    ports:
-      - "80"
-

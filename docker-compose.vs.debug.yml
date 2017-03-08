@@ -1,61 +1,60 @@
 version: '2'
 
 services:
-  marketing:
-    image: marketing:dev
+  bikesharing.campaign:
+    image: bikesharing.campaign:dev
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
     volumes:
-      - ./src/Marketing:/app
+      - ./Bikesharing.Campaign:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro
       - ~/clrdbg:/clrdbg:ro
     entrypoint: tail -f /dev/null
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-  profileapi:
-    image: profileapi:dev
+  bikesharing.email.api:
+    image: bikesharing.email.api:dev
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
     volumes:
-      - ./src/Profile.Api:/app
+      - ./Email.Api:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro
       - ~/clrdbg:/clrdbg:ro
     entrypoint: tail -f /dev/null
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-  emailapi:
-    image: emailapi:dev
+  bikesharing.feedback.api:
+    image: bikesharing.feedback.api:dev
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
     volumes:
-      - ./src/Email.Api:/app
+      - ./Feedback.Api:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro
       - ~/clrdbg:/clrdbg:ro
     entrypoint: tail -f /dev/null
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-
-  feedbackapi:
-    image: user/feedbackapi:dev
+  bikesharing.profile.api:
+    image: bikesharing.profile.api:dev
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
     environment:
       - DOTNET_USE_POLLING_FILE_WATCHER=1
     volumes:
-      - ./src/Feedback.Api:/app
+      - ./Profile.Api:/app
       - ~/.nuget/packages:/root/.nuget/packages:ro
       - ~/clrdbg:/clrdbg:ro
     entrypoint: tail -f /dev/null

@@ -1,26 +1,25 @@
 version: '2'
 
 services:
-  profileapi:
+  bikesharing.campaign:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
 
-  marketing:
+  bikesharing.email.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
 
-  emailapi:
+  bikesharing.feedback.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
 
-
-  feedbackapi:
+  bikesharing.profile.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:

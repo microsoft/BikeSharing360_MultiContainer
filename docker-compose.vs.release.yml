@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  profileapi:
+  bikesharing.campaign:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
@@ -11,7 +11,7 @@ services:
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-  marketing:
+  bikesharing.email.api:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
@@ -21,8 +21,7 @@ services:
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-
-  emailapi:
+  bikesharing.feedback.api:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
@@ -32,7 +31,7 @@ services:
     labels:
       - "com.microsoft.visualstudio.targetoperatingsystem=linux"
 
-  feedbackapi:
+  bikesharing.profile.api:
     build:
       args:
         source: ${DOCKER_BUILD_SOURCE}
