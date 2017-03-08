@@ -1,6 +1,6 @@
 #BikeSharing360
 
-During our Connect(); event this year we presented 15 demos in Scott Guthrie’s and Scott Hanselman’s keynotes. If you missed the keynotes, you can watch the recording in [Channel 9](https://channel9.msdn.com/Events/Connect/2016/Keynotes-Scott-Guthrie-and-Scott-Hanselman).
+During our Visual Studio 2017 Launch event this year, Scott Hanselman presented our Dockder Tooling experiences. 
 
 This year, we built the technology stack for a fictional company named BikeSharing360, which allows users to rent bikes from one location to another.
 
@@ -24,8 +24,8 @@ To validate the VSTS Build Steps will sucessfuly build the project, in a contain
 
 How this works:
 
-* when you call `docker-compose -f docker-compose.ci.build.yml up`, the image `microsoft/aspnetcore:1.0.1-sdk` is attempted to be instanced. 
-* The first time, `microsoft/aspnetcore:1.0.1-sdk` isn't available compose up will build the image using  `.\build\Dockerfile` 
+* when you call `docker-compose -f docker-compose.ci.build.yml up`, the image `microsoft/aspnetcore-build:1.0-1.1` is attempted to be instanced. 
+* The first time, `microsoft/aspnetcore-build:1.0-1.1` isn't available compose up will build the image using  `.\build\Dockerfile` 
 * The root of the solution is volume mapped in
 * `dotnet restore`, `dotnet publish -c release` are executed
 
